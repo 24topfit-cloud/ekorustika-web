@@ -2,57 +2,341 @@
 <html lang="hr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="EKORUSTIKA MONTAŽE – SPC zidne obloge, MDF i akustični paneli, WPC, TV zidovi, montaža kuhinja i restauracija namještaja. Zagreb i okolica. Profesionalna izvedba.">
+<meta name="keywords" content="SPC obloge Zagreb, zidne obloge, montaža kuhinja, TV zid, MDF paneli, restauracija namještaja, EKORUSTIKA">
 <meta name="theme-color" content="#081b15">
-<title>EKORUSTIKA | Montaže i obloge</title>
+<title>EKORUSTIKA MONTAŽE | Zidne obloge i montaže – Zagreb</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#081b15;color:#fff;font-family:Arial,sans-serif;line-height:1.6}
-header,section,footer{padding:28px 7%}
-header{border-bottom:1px solid #295342}
-.logo{font-size:25px;font-weight:bold;letter-spacing:2px;color:#7dffaa}
-.hero{padding-top:85px;padding-bottom:85px;background:linear-gradient(145deg,#102e21,#06120e)}
-h1{font-size:clamp(36px,8vw,65px);line-height:1.1;margin:20px 0}
-h2{color:#7dffaa}
-p{color:#c8d8d0}
-.tag{color:#7dffaa;font-weight:bold}
-.btn{display:inline-block;padding:14px 22px;margin:8px 8px 8px 0;background:#7dffaa;color:#082016;border-radius:9px;text-decoration:none;font-weight:bold}
-.outline{background:transparent;color:#fff;border:1px solid #7dffaa}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
-.card{background:#133326;padding:24px;border:1px solid #315743;border-radius:14px}
-.contact{background:#123627}
-footer{border-top:1px solid #315743;color:#a6c2b5}
+:root {
+  --bg: #06120e;
+  --bg-card: #0f241c;
+  --accent: #00ff9d;
+  --accent-dark: #00cc7a;
+  --gold: #d4af37;
+  --text: #e8f0ec;
+  --muted: #a0c0b0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(6,18,14,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #1a3a2e;
+  padding: 16px 5%;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo { font-size: 1.4rem; font-weight: 700; letter-spacing: 2px; color: var(--accent); }
+nav a { color: var(--text); text-decoration: none; margin-left: 20px; font-size: 0.95rem; }
+nav a:hover { color: var(--accent); }
+.hero {
+  min-height: 80vh;
+  display: flex; align-items: center;
+  background: linear-gradient(135deg, #06120e 0%, #0a1f18 50%, #081b15 100%);
+  padding: 60px 5% 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(0,255,157,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-content { max-width: 700px; position: relative; z-index: 1; }
+.tag { color: var(--accent); font-weight: 600; letter-spacing: 1px; font-size: 0.9rem; margin-bottom: 12px; }
+h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.1; margin-bottom: 20px; }
+h1 span { color: var(--accent); }
+.hero p { font-size: 1.15rem; color: var(--muted); margin-bottom: 28px; max-width: 520px; }
+.btn {
+  display: inline-block; padding: 14px 28px; background: var(--accent); color: #04120c;
+  text-decoration: none; border-radius: 10px; font-weight: 700; margin-right: 12px; margin-bottom: 10px;
+  transition: all 0.2s;
+}
+.btn:hover { background: var(--accent-dark); transform: translateY(-2px); }
+.btn-outline { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+.btn-outline:hover { background: var(--accent); color: #04120c; }
+section { padding: 80px 5%; }
+h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--accent); margin-bottom: 12px; }
+.section-sub { color: var(--muted); margin-bottom: 40px; max-width: 640px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.card {
+  background: var(--bg-card); border: 1px solid #1a3a2e; border-radius: 16px; padding: 28px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.card h3 { color: var(--gold); margin-bottom: 10px; font-size: 1.25rem; }
+.card.main { border-color: var(--accent); background: linear-gradient(145deg, #0f241c, #122e22); }
+.gallery-filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+.filter-btn {
+  padding: 8px 16px; background: #122e22; border: 1px solid #1a3a2e; color: var(--text);
+  border-radius: 20px; cursor: pointer; font-size: 0.9rem;
+}
+.filter-btn.active, .filter-btn:hover { background: var(--accent); color: #04120c; border-color: var(--accent); }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.gallery-item { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid #1a3a2e; }
+.gallery-item img { width: 100%; height: 220px; object-fit: cover; display: block; }
+.gallery-caption {
+  position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(6,18,14,0.9));
+  padding: 20px 12px 12px; font-size: 0.85rem;
+}
+.gallery-caption span { color: var(--accent); font-size: 0.75rem; display: block; }
+.steps { display: grid; gap: 20px; max-width: 700px; }
+.step { display: flex; gap: 16px; align-items: flex-start; }
+.step-num {
+  flex-shrink: 0; width: 40px; height: 40px; background: var(--accent); color: #04120c;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;
+}
+.contact-box { background: var(--bg-card); border-radius: 16px; padding: 40px; text-align: center; border: 1px solid #1a3a2e; }
+.whatsapp-float {
+  position: fixed; bottom: 20px; right: 20px; z-index: 999;
+  width: 60px; height: 60px; background: #25D366; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  text-decoration: none; font-size: 32px; transition: transform 0.2s;
+}
+.whatsapp-float:hover { transform: scale(1.1); }
+footer { text-align: center; padding: 40px 5%; border-top: 1px solid #1a3a2e; color: var(--muted); font-size: 0.9rem; }
+.before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+.before-after div { border-radius: 12px; overflow: hidden; position: relative; }
+.before-after img { width: 100%; height: 180px; object-fit: cover; }
+.before-after span { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.7); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; }
+@media (max-width: 768px) {
+  nav { display: none; }
+  .hero { padding: 40px 5% 60px; min-height: auto; }
+  section { padding: 60px 5%; }
+  .before-after { grid-template-columns: 1fr; }
+  .whatsapp-float { bottom: 16px; right: 16px; width: 56px; height: 56px; }
+}
 </style>
 </head>
 <body>
-<header><div class="logo">EKORUSTIKA</div></header>
-<main>
+<header>
+  <div class="logo">EKORUSTIKA</div>
+  <nav>
+    <a href="#usluge">Usluge</a>
+    <a href="#restauracija">Restauracija</a>
+    <a href="#galerija">Galerija</a>
+    <a href="#kako">Kako radimo</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+</header>
+
 <section class="hero">
-<div class="tag">ZAGREB I OKOLICA</div>
-<h1>Montaže i zidne obloge.<br><span style="color:#7dffaa">Precizna izvedba.</span></h1>
-<p>SPC, MDF i WPC paneli, montaža kuhinja, namještaja i unutarnje uređenje.</p>
-<a class="btn" href="https://wa.me/385915181266">WhatsApp upit</a>
-<a class="btn outline" href="#usluge">Naše usluge</a>
+  <div class="hero-content">
+    <div class="tag">ZAGREB I OKOLICA</div>
+    <h1>EKORUSTIKA<br><span>MONTAŽE</span></h1>
+    <p>SPC zidne obloge, MDF i akustični paneli, TV zidovi, montaža kuhinja i restauracija postojećeg namještaja. Precizna izvedba za novi izgled vašeg prostora.</p>
+    <a class="btn" href="https://wa.me/385915181266?text=Pozdrav%2C%20želim%20upit%20za%20EKORUSTIKA%20montaže" target="_blank">WhatsApp upit</a>
+    <a class="btn btn-outline" href="#usluge">Naše usluge</a>
+  </div>
 </section>
+
 <section id="usluge">
-<h2>Naše usluge</h2>
-<div class="grid">
-<div class="card"><h3>SPC / MDF / WPC</h3><p>Montaža dekorativnih zidnih panela i završnih elemenata.</p></div>
-<div class="card"><h3>Kuhinje i namještaj</h3><p>Profesionalna montaža kuhinja, ormara i namještaja.</p></div>
-<div class="card"><h3>Izmjera i planiranje</h3><p>Dogovor, izmjera, vizualizacija i priprema ponude.</p></div>
-</div>
+  <h2>Usluge</h2>
+  <p class="section-sub">Glavna usluga: SPC zidne obloge – prodaja i montaža prema dogovoru. Ostale usluge po potrebi.</p>
+  <div class="grid">
+    <div class="card main">
+      <h3>SPC zidne obloge</h3>
+      <p>Prodaja i profesionalna montaža SPC panela. Brza izvedba, visoka otpornost, moderan izgled. Idealno za dnevne sobe, hodnike i poslovne prostore.</p>
+    </div>
+    <div class="card">
+      <h3>MDF i akustični paneli</h3>
+      <p>Dekorativni i akustični MDF paneli za elegantan i tiši interijer. Rezanje na mjeru i precizna montaža.</p>
+    </div>
+    <div class="card">
+      <h3>WPC dekorativne obloge</h3>
+      <p>WPC paneli otporni na vlagu i vremenske uvjete. Pogodni za vanjske i unutarnje primjene.</p>
+    </div>
+    <div class="card">
+      <h3>TV zidovi</h3>
+      <p>Kompletni TV zidovi s panelima, LED rasvjetom i skrivenim kablovima. Dizajn prilagođen prostoru.</p>
+    </div>
+    <div class="card">
+      <h3>Montaža kuhinja i namještaja</h3>
+      <p>Profesionalna montaža kuhinjskih elemenata, ormara i namještaja. Niveliranje i završni radovi.</p>
+    </div>
+    <div class="card">
+      <h3>Restauracija namještaja</h3>
+      <p>Obnova postojećih kuhinja i namještaja dekorativnim oblogama. Novi život starim površinama bez potpune zamjene.</p>
+    </div>
+  </div>
 </section>
-<section>
-<h2>Kako do ponude?</h2>
-<p>Pošaljite fotografiju prostora, približne dimenzije i opis željenih radova. Dogovaramo detalje i termin.</p>
+
+<section id="restauracija" style="background:#0a1a14;">
+  <h2>EKORUSTIKA – RESTAURACIJA POSTOJEĆIH KUHINJA I NAMJEŠTAJA</h2>
+  <p class="section-sub"><strong>Ne bacajte staro. Obnovite ga i dajte mu novi život!</strong><br>Obnova postojećih površina dekorativnim oblogama. Bez nepotrebne zamjene namještaja.</p>
+  
+  <div class="grid">
+    <div class="card">
+      <h3>Kuhinja – bež obloge + crne lajsne</h3>
+      <p>Primjer mogućeg izgleda. Vizualizacija.</p>
+      <img src="FRzoZ.jpg" alt="Primjer kuhinje s dekorativnim oblogama" style="width:100%;border-radius:10px;margin-top:12px;height:180px;object-fit:cover;">
+      <small style="color:var(--muted);display:block;margin-top:6px;">Vizualizacija – primjer mogućeg izgleda</small>
+    </div>
+    <div class="card">
+      <h3>Kuhinja – mramorni dekor</h3>
+      <p>Primjer mogućeg izgleda. Vizualizacija.</p>
+      <img src="paOvI.jpg" alt="Primjer mramornog dekora" style="width:100%;border-radius:10px;margin-top:12px;height:180px;object-fit:cover;">
+      <small style="color:var(--muted);display:block;margin-top:6px;">Vizualizacija – primjer mogućeg izgleda</small>
+    </div>
+    <div class="card">
+      <h3>Obnovljeni stol</h3>
+      <p>Dekorativna površina na postojećem namještaju.</p>
+      <div style="background:#1a3a2e;height:180px;border-radius:10px;margin-top:12px;display:flex;align-items:center;justify-content:center;color:var(--muted);">Primjer obnovljenog stola (vizualizacija)</div>
+      <small style="color:var(--muted);display:block;margin-top:6px;">Vizualizacija – primjer mogućeg izgleda</small>
+    </div>
+  </div>
+  
+  <h3 style="margin:40px 0 16px;color:var(--gold);">Usporedba PRIJE / POSLIJE</h3>
+  <p style="margin-bottom:16px;color:var(--muted);">Primjer moguće obnove postojećih površina (vizualizacije).</p>
+  <div class="before-after">
+    <div>
+      <img src="jOeqj.jpg" alt="Prije">
+      <span>PRIJE</span>
+    </div>
+    <div>
+      <img src="FRzoZ.jpg" alt="Poslije">
+      <span>POSLIJE</span>
+    </div>
+  </div>
+  <small style="color:var(--muted);">Sve fotografije u ovoj rubrici su vizualizacije / primjeri mogućeg izgleda. Stvarne fotografije izvedenih radova nalaze se u galeriji.</small>
 </section>
-<section class="contact">
-<h2>Kontaktirajte nas</h2>
-<p>EKORUSTIKA – Zagreb i okolica</p>
-<a class="btn" href="tel:+385915181266">091 518 1266</a>
-<a class="btn outline" href="mailto:ekorustika@gmail.com">Pošalji e-mail</a>
+
+<section id="galerija">
+  <h2>Galerija radova</h2>
+  <p class="section-sub">Pregled po kategorijama. Stvarne fotografije izvedenih radova bit će dodane. Trenutno prikazani primjeri su ilustrativni.</p>
+  
+  <div class="gallery-filters">
+    <button class="filter-btn active" onclick="filterGallery('sve')">Sve</button>
+    <button class="filter-btn" onclick="filterGallery('spc')">SPC zidne obloge</button>
+    <button class="filter-btn" onclick="filterGallery('mdf')">MDF i akustični</button>
+    <button class="filter-btn" onclick="filterGallery('tv')">TV zidovi</button>
+    <button class="filter-btn" onclick="filterGallery('kuhinje')">Kuhinje</button>
+    <button class="filter-btn" onclick="filterGallery('restauracija')">Restauracija</button>
+    <button class="filter-btn" onclick="filterGallery('ostali')">Ostali radovi</button>
+  </div>
+  
+  <div class="gallery-grid" id="gallery">
+    <div class="gallery-item" data-cat="spc">
+      <img src="xJ2Sd.jpg" alt="SPC obloge">
+      <div class="gallery-caption">SPC zidne obloge<br><span>Primjer / inspiracija</span></div>
+    </div>
+    <div class="gallery-item" data-cat="mdf">
+      <img src="6UdGC.jpg" alt="Akustični paneli">
+      <div class="gallery-caption">MDF / akustični paneli<br><span>Primjer / inspiracija</span></div>
+    </div>
+    <div class="gallery-item" data-cat="mdf">
+      <img src="vFib6.jpg" alt="TV zid paneli">
+      <div class="gallery-caption">Akustični paneli<br><span>Primjer / inspiracija</span></div>
+    </div>
+    <div class="gallery-item" data-cat="tv">
+      <img src="MBQbO.jpg" alt="TV zid">
+      <div class="gallery-caption">TV zid s panelima<br><span>Primjer / inspiracija</span></div>
+    </div>
+    <div class="gallery-item" data-cat="tv">
+      <img src="uYZNy.jpg" alt="TV zid">
+      <div class="gallery-caption">TV zid<br><span>Primjer / inspiracija</span></div>
+    </div>
+    <div class="gallery-item" data-cat="kuhinje">
+      <img src="jOeqj.jpg" alt="Kuhinja">
+      <div class="gallery-caption">Kuhinja<br><span>Primjer / inspiracija</span></div>
+    </div>
+    <div class="gallery-item" data-cat="restauracija">
+      <img src="FRzoZ.jpg" alt="Restauracija">
+      <div class="gallery-caption">Restauracija površina<br><span>Vizualizacija</span></div>
+    </div>
+    <div class="gallery-item" data-cat="ostali">
+      <img src="al0OI.jpg" alt="Ostali radovi">
+      <div class="gallery-caption">Dekorativne obloge<br><span>Primjer / inspiracija</span></div>
+    </div>
+  </div>
+  <p style="margin-top:20px;color:var(--muted);font-size:0.9rem;">Napomena: Fotografije stvarnih izvedenih radova (uključujući Rimac Kampus) bit će dodane nakon odobrenja. Ne izmišljamo reference.</p>
 </section>
-</main>
-<footer>© EKORUSTIKA — Montaže i obloge</footer>
+
+<section id="kako" style="background:#0a1a14;">
+  <h2>Kako radimo</h2>
+  <p class="section-sub">Jednostavan postupak od upita do završene montaže.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <strong>Fotografije i dimenzije</strong>
+        <p>Kupac šalje fotografije prostora i približne dimenzije putem WhatsAppa.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <strong>Okvirna ponuda</strong>
+        <p>EKORUSTIKA priprema okvirnu ponudu na temelju poslanih podataka.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <strong>Besplatan izlazak i izmjera</strong>
+        <p>Po potrebi dogovaramo besplatan izlazak i preciznu izmjeru.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <strong>Dogovor materijala, cijene i termina</strong>
+        <p>Dogovaramo materijal, konačnu cijenu i termin izvedbe.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div>
+        <strong>Montaža</strong>
+        <p>Izvodimo profesionalnu montažu. Prostor ostaje uredan.</p>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:30px;">
+    <a class="btn" href="https://wa.me/385915181266?text=Pozdrav%2C%20šaljem%20fotografije%20prostora%20za%20ponudu" target="_blank">Pošalji fotografije na WhatsApp</a>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="contact-box">
+    <h2>Kontakt</h2>
+    <p style="margin:16px 0 24px;color:var(--muted);">EKORUSTIKA – Zagreb i okolica<br>Kvalitetna montaža. Novi izgled vašeg prostora.</p>
+    <a class="btn" href="https://wa.me/385915181266?text=Pozdrav%20EKORUSTIKA" target="_blank">WhatsApp</a>
+    <a class="btn btn-outline" href="tel:+385915181266">Poziv: 091 518 1266</a>
+    <a class="btn btn-outline" href="mailto:ekorustika@gmail.com">E-mail</a>
+    <p style="margin-top:20px;font-size:0.9rem;color:var(--muted);">Web: <a href="https://ekorustika.com" style="color:var(--accent);">ekorustika.com</a></p>
+  </div>
+</section>
+
+<footer>
+  © EKORUSTIKA MONTAŽE — Zagreb i okolica<br>
+  <small>SPC obloge • MDF • WPC • TV zidovi • Montaža kuhinja • Restauracija namještaja</small>
+</footer>
+
+<a href="https://wa.me/385915181266?text=Pozdrav%2C%20želim%20upit%20za%20EKORUSTIKA" class="whatsapp-float" target="_blank" aria-label="WhatsApp">💬</a>
+
+<script>
+function filterGallery(cat) {
+  const items = document.querySelectorAll('.gallery-item');
+  const btns = document.querySelectorAll('.filter-btn');
+  btns.forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  items.forEach(item => {
+    if (cat === 'sve' || item.dataset.cat === cat) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+</script>
 </body>
 </html>
